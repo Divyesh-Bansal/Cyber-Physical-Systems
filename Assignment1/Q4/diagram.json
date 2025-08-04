@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "author": "Divyesh Bansal",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 141, "left": 338.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -76.2, "left": 373.8, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 13.6, "left": 655.02, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 9.9, "left": 263.4, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 280.8,
+      "left": 712.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 207.6,
+      "left": 685.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 195.95,
+      "left": 777.6,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-gas-sensor", "id": "gas2", "top": 165.9, "left": 179.8, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 224.75,
+      "left": 825.6,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "bb1:tn.16", "uno:GND.2", "green", [ "v0" ] ],
+    [ "uno:5V", "bb1:tp.15", "red", [ "v57.5", "h3.8" ] ],
+    [ "gas2:GND", "bb1:tn.1", "black", [ "h57.6", "v-10.4" ] ],
+    [ "gas2:VCC", "bb1:tp.2", "red", [ "h67.2", "v-29.7" ] ],
+    [ "pir1:VCC", "bb1:tp.25", "red", [ "v48", "h-57.6" ] ],
+    [ "pir1:GND", "bb1:tn.25", "black", [ "v57.6", "h-77.06" ] ],
+    [ "dht1:VCC", "bb1:tp.1", "red", [ "v28.8", "h57.6" ] ],
+    [ "dht1:GND", "bb1:tn.5", "black", [ "v38.4", "h67.2" ] ],
+    [ "uno:2", "dht1:SDA", "green", [ "v0" ] ],
+    [ "pir1:OUT", "uno:3", "green", [ "v0" ] ],
+    [ "gas2:AOUT", "uno:A0", "green", [ "h0" ] ],
+    [ "led1:C", "bb1:tn.21", "green", [ "v-57.6", "h-114.8" ] ],
+    [ "r1:1", "led1:A", "green", [ "v0" ] ],
+    [ "r1:2", "uno:4", "green", [ "v0" ] ],
+    [ "bz1:2", "bb1:tn.20", "green", [ "v-172.8", "h-173.2" ] ],
+    [ "bz1:1", "r2:1", "green", [ "v0" ] ],
+    [ "r2:2", "uno:5", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
