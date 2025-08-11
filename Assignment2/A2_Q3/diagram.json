@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 121.57,
+      "left": -232.49,
+      "attrs": { "env": "micropython-20220618-v1.19.1" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 54.4,
+      "left": -618.4,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -21.2, "left": -278.4, "attrs": {} },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -2, "left": -52, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -84,
+      "left": -324.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -111.2,
+      "left": -468.18,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "lcd1:GND",
+      "pico:GND.8",
+      "black",
+      [ "h-67.2", "v153.6", "h374.4", "v-153.6", "h211.2", "v57.6" ]
+    ],
+    [ "servo1:V+", "pico:3V3", "red", [ "h-9.6", "v38.5", "h201.6", "v96" ] ],
+    [ "servo1:V+", "lcd1:VCC", "red", [ "h-364.8", "v19.3" ] ],
+    [ "lcd1:SCL", "pico:GP1", "green", [ "h-19.2", "v86.7", "h374.4", "v-57.6" ] ],
+    [ "lcd1:SDA", "pico:GP0", "green", [ "h-28.8", "v105.8", "h374.4", "v-76.8" ] ],
+    [ "servo1:PWM", "pico:GP2", "green", [ "h-19.2", "v105.8" ] ],
+    [ "keypad1:R1", "pico:GP28", "green", [ "v19.2", "h-105.6", "v-144" ] ],
+    [ "keypad1:R2", "pico:GP27", "green", [ "v28.8", "h-125.2", "v-144" ] ],
+    [ "pico:GP26", "keypad1:R3", "green", [ "h83.69", "v153.68", "h144" ] ],
+    [ "keypad1:R4", "pico:GP22", "green", [ "v48", "h-163.4", "v-144" ] ],
+    [ "pico:GP21", "keypad1:C1", "green", [ "h64.49", "v134.48", "h182.4", "v-9.6" ] ],
+    [ "keypad1:C2", "pico:GP20", "green", [ "v67.2", "h-201.6", "v-134.4" ] ],
+    [ "pico:GP19", "keypad1:C3", "green", [ "h45.29", "v134.48", "h220.8" ] ],
+    [ "keypad1:C4", "pico:GP18", "green", [ "v86.4", "h-240.3", "v-134.4" ] ],
+    [ "servo1:GND", "pico:GND.8", "black", [ "h-28.8", "v57.6", "h211.2", "v67.2" ] ],
+    [ "bz1:1", "pico:GND.2", "green", [ "v0" ] ],
+    [ "bz1:2", "pico:GP3", "green", [ "v0" ] ],
+    [ "pir1:GND", "pico:GND.1", "black", [ "v0" ] ],
+    [ "pir1:OUT", "pico:GP4", "green", [ "v0" ] ],
+    [ "pir1:VCC", "pico:3V3", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
